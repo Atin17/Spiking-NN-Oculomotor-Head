@@ -1,0 +1,8 @@
+prefix=/home/vaibhav/Downloads/robot_head_ros/robot_ws/install
+
+Name: head_tf_fk
+Description: Description of head_tf_fk
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
