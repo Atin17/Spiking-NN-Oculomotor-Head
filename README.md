@@ -1,6 +1,6 @@
 # Spiking Oculomotor Network for Robotic Head Control
 
-This package is the Python and ROS implementation of a spiking neural network on Intel's Loihi neuromorphic processor mimicking the oculomotor system to control a biomimetic robotic head.
+This package is the Python and ROS implementation of a spiking neural network mimicking the oculomotor system to control a biomimetic robotic head.
 
 The paper is published by IEEE Transactions on Medical Robotics and Bionics (TMRB) in 2022. The published verion is available [here](https://ieeexplore.ieee.org/document/9722907).
 
@@ -31,15 +31,10 @@ Ioannis Polykretis, Guangzhi Tang, Praveenram Balachandar and Konstantinos P. Mi
 #### 1. Basic Requirements
 
 * Ubuntu 16.04
-* Python 3.5.2
+* Python 2.7
 * ROS Kinetic
-* NxSDK 0.9
 
 ROS Kinetic is not compatible with Python 3 by default, if you have issues with using Python 3 with ROS, please follow this [link](https://medium.com/@beta_b0t/how-to-setup-ros-with-python-3-44a69ca36674) to resolve them. We use the default Python 2 environment to execute `roslaunch` and `rosrun`.
-
-Intel's neuromorphic library NxSDK is required for SNN deployment on Loihi. 
-If you are interested in deploying SNNs on Loihi, please contact the [Intel Neuromorphic Lab](https://www.intel.com/content/www/us/en/research/neuromorphic-community.html).
-
 
 #### 2. Setup Interaction Between ROS and ArbotiX-M
 
@@ -103,12 +98,12 @@ roslaunch camera_launch microsoft_camera.launch
 This launch file will simultaneously bring up both the left and the right camera. This will also automatically activate the visual input processing for both cameras, and display the active receptive fields of both eyes.
 
 
-#### 2. Run Experiments using SNN on Loihi
+#### 2. Run Experiments
 
-To control the robotic head, we first deploy the SNN on Loihi and generate control commands by running the following code in the Python3 environment with NxSDK:
+To control the robotic head:
 
 ```
-python head_control.py
+python od_gui.py
 ```
 
 Then we activate the automatic laser pointer control by running the following code in a new terminal session:
@@ -145,6 +140,3 @@ python plot_results.py
 The code will plot the trajectories and compute the position errors between the laser pointer and the eyes.
 
 
-### Acknowledgment
-
-This work is supported by Intel's Neuromorphic Research Community Grant Award.
