@@ -1,0 +1,8 @@
+prefix=/home/vaibhav/Downloads/robot_head_ros/robot_ws/devel
+
+Name: camera_launch
+Description: Description of camera_launch
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

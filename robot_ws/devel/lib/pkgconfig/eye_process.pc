@@ -1,0 +1,8 @@
+prefix=/home/vaibhav/Downloads/robot_head_ros/robot_ws/devel
+
+Name: eye_process
+Description: Description of eye_process
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/vaibhav/Downloads/robot_head_ros/robot_ws/devel
+
+Name: arbotix_head
+Description: Description of arbotix_head
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
