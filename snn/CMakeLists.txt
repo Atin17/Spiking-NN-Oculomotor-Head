@@ -1,0 +1,50 @@
+cmake_minimum_required(VERSION 3.5)
+project(robot_control_serial)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_BUILD_TYPE Debug)
+
+
+
+find_package( OpenCV REQUIRED )
+
+
+## S.M add >>>
+## Forcing CMAKE to use OpenCV 2.4.9.1
+#set(OpenCV_ROOT "/usr/local/lib")
+#find_package(OpenCV 2.4.9.1 REQUIRED PATHS /usr/share/OpenCV NO_DEFAULT_PATH)
+message(STATUS "    OpenCV library status:")
+message(STATUS "    version: ${OpenCV_VERSION}")
+message(STATUS "    libraries: ${OpenCV_LIBS}")
+message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
+find_package(Qt5Core REQUIRED) 
+find_package(Qt5Gui REQUIRED) 
+find_package(Qt5Test REQUIRED) 
+find_package(Qt5Concurrent REQUIRED)
+find_package(Qt5OpenGL REQUIRED)
+
+## <<<
+
+add_library(thread thread/thread.cpp)
+add_library(camera camera/camera.cpp)
+add_library(simple_neuron simple_neuron/simple_neuron.cpp)
+add_library(string_utilities utilities/string_utilities.cpp)
+
+set(SOURCE_FILES main_serial.cpp)
+
+add_executable(main_serial ${SOURCE_FILES})
+
+target_link_libraries( thread pthread )
+
+target_link_libraries( simple_neuron string_utilities )
+
+target_link_libraries( main_serial ${OpenCV_LIBS} )
+target_link_libraries( main_serial thread )
+target_link_libraries( main_serial camera )
+target_link_libraries( main_serial serial )
+target_link_libraries( main_serial simple_neuron )
+target_link_libraries( main_serial boost_iostreams )
+target_link_libraries( main_serial boost_system )
+target_link_libraries( main_serial boost_filesystem )
+target_link_libraries( main_serial boost_thread )
+target_link_libraries( main_serial udev )

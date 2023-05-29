@@ -1,0 +1,11 @@
+{
+	"auto_detect_devices": false,
+	"left_camera_num": 0,
+	"right_camera_num": 1,
+	"arbotix_device": "/dev/ttyUSB0",
+	"debug_level": 0,
+	"capture_video": true,
+	"save_servo_positions": true,
+	"learning":true,
+	"coordinated_run": false
+}

@@ -1,0 +1,38 @@
+#
+Pass left-right movement to both eyes, to make sure both eyes move in same direction - most of the time except for vergence
+Neck movement neural network logic for movement
+
+
+Goal: Manage pan/tilt positions
+	- Restrict eye pan / tilt to a range of angles around 512 and nothing more.
+	- If the pointer moves out of range, the neck needs to move.
+
+Goal: Bring down the time to under 30ms for 2D movement
+	- inverse map of pixel to neuron
+	- find the max value and the field around it, process inputs for only these neurons
+	- parallelize 
+		- up/down and left/right neuron processing - 2 different threads
+			- wait for both to complete
+			- send command to the motor
+
+Goal: Smooth movement of motors
+	- 
+
+Goal: Pursuit movement and saccade movement in 2D
+	2 receptive fields - (saccades and pursuit movement)
+
+	fovea =
+		- logarithmic growth from center to the fovea end
+	periphery =
+		- logarithmic growth from fovea end to periphery end
+
+Goal: PDI controller with Amacrine cells to control speed of movement
+	- Memory (I - Integrator / Memory)
+	- Differentiator (D - Speed)
+
+Goal: Neck movement
+	- Move only after eye has moved a fair bit
+	- VOR
+	- 
+
+Goal: Live Feed with mask on top showing exactly where the laser pointer is within the receptive field
